@@ -16,8 +16,9 @@ jobs:
 
       # Step 2: Configure AWS Credentials using the IAM Role
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v3
+        uses: aws-actions/configure-aws-credentials@v4
         with:
+          audience: sts.amazon.com
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/github-actions
           aws-region: us-east-1
 
@@ -29,15 +30,15 @@ jobs:
       # Step 4: Build the Docker image
       - name: Build Docker Image
         run: |
-          docker build -t my-app:latest .
+          docker build -t tech-matcha-home:latest .
 
       # Step 5: Tag the Docker image
       - name: Tag Docker Image
         run: |
-          docker tag my-app:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/my-app:latest
+          docker tag my-app:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/tech-matcha-home:latest
 
       # Step 6: Push the Docker image to ECR
       - name: Push Docker Image
         run: |
-          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/my-app:latest
+          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/tech-matcha-home:latest
 
