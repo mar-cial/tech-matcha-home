@@ -39,7 +39,7 @@ jobs:
       # Step 5: Tag the Docker image
       - name: Tag Docker Image
         run: |
-          docker tag my-app:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/tech-matcha-home:latest
+          docker tag tech-matcha-home:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/tech-matcha-home:latest
 
       # Step 6: Push the Docker image to ECR
       - name: Push Docker Image
