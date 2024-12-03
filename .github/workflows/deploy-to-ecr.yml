@@ -13,11 +13,9 @@ jobs:
       contents: read
 
     steps:
-      # Step 1: Checkout the repository
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # Step 2: Configure AWS Credentials using the IAM Role
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -25,25 +23,25 @@ jobs:
           audience: sts.amazonaws.com
           aws-region: us-east-1
 
-      # Step 3: Login to Amazon ECR
       - name: Login to Amazon ECR
         run: |
           aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com
 
+      - name: Define Image Tag
+        id: image_tag
+        run: echo "tag=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
 
-      # Step 4: Build the Docker image
       - name: Build Docker Image
         run: |
-          docker build -t tech-matcha-home:latest .
+          docker build -t tech-matcha-home:latest -t tech-matcha-home:${{ env.tag }} .
 
-      # Step 5: Tag the Docker image
       - name: Tag Docker Image
         run: |
+          docker tag tech-matcha-home:${{ env.tag }} ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/tech-matcha-home:${{ env.tag }}
           docker tag tech-matcha-home:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/tech-matcha-home:latest
 
-      # Step 6: Push the Docker image to ECR
       - name: Push Docker Image
         run: |
+          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/tech-matcha-home:${{ env.tag }}
           docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/tech-matcha-home:latest
-
 
