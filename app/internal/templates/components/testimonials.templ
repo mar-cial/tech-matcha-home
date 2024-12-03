@@ -1,0 +1,35 @@
+package components
+
+css testimonials() {
+	background-color: #f5f5f5;
+	padding: 50px 20px;
+	text-align: center;
+}
+
+css testimonialsDiv() {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+css testimonialsH2() {
+	font-size: 2rem;
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 30px;
+}
+
+css testimonialsInnerDiv() {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: center;
+}
+
+templ Testimonials() {
+	<section id="testimonials" class={ testimonials() }>
+		<div class={ testimonialsDiv() }>
+			<h2 class={ testimonialsH2() }>What Our Clients Say</h2>
+			<div class={ testimonialsInnerDiv() }></div>
+		</div>
+	</section>
+}

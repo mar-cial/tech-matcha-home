@@ -1,16 +1,24 @@
 package layouts
 
+import "github.com/mar-cial/home-app/internal/templates/components"
+
+css title() {
+	font-weight: 800;
+}
+
 templ BaseLayout() {
 	<!DOCTYPE html>
 	<html>
 		<head>
 			<title>tech match</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>Tech Matcha - Tech Talent Aquisition</title>
+			<link rel="stylesheet" href="https://unpkg.com/tailwindcss@3.4.15/src/css/preflight.css"/>
 		</head>
 		<body>
-			<header>
-				<h1>Tech match</h1>
-			</header>
+			@components.PageHeader()
 			{ children... }
+			<footer></footer>
 		</body>
 	</html>
 }

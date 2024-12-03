@@ -1,0 +1,35 @@
+package components
+
+css services() {
+	background-color: #f9f9f9;
+	padding: 50px 20px;
+	text-align: center;
+}
+
+css servicesDiv() {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+css servicesH2() {
+	font-size: 2rem;
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 30px;
+}
+
+css servicesInnerDiv() {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 20px;
+}
+
+templ Services() {
+	<section id="services" class={ services() }>
+		<div class={ servicesDiv() }>
+			<h2 class={ servicesH2() }>Our Services</h2>
+			<div class={ servicesInnerDiv() }></div>
+		</div>
+	</section>
+}

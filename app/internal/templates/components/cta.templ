@@ -1,0 +1,52 @@
+package components
+
+css cta() {
+	background-color: #007BFF;
+	padding: 50px 20px;
+	text-align: center;
+	color: #fff;
+}
+
+css ctaDiv() {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+css ctaH2() {
+	font-size: 2rem;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+css ctaP() {
+	font-size: 1.2rem;
+	line-height: 1.6;
+	margin-bottom: 30px;
+}
+
+css ctaA() {
+	display: inline-block;
+	padding: 12px 30px;
+	font-size: 1rem;
+	font-weight: bold;
+	color: #007BFF;
+	background-color: #fff;
+	border-radius: 5px;
+	text-decoration: none;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+css ctaAHover() {
+	background-color: #e6e6e6;
+	color: #0056b3;
+}
+
+templ CTA() {
+	<section id="cta" class={ cta() }>
+		<div class={ ctaDiv() }>
+			<h2 class={ ctaH2() }>Ready to Make the Perfect Match?</h2>
+			<p class={ ctaP() }>Join our network of tech professionals and hiring companies today.</p>
+			<a href="/signup" class={ ctaA() }>Get Started</a>
+		</div>
+	</section>
+}

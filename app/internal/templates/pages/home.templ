@@ -1,13 +1,18 @@
 package pages
 
-import "github.com/mar-cial/home-app/internal/templates/layouts"
+import (
+	"github.com/mar-cial/home-app/internal/templates/components"
+	"github.com/mar-cial/home-app/internal/templates/layouts"
+)
 
 templ Homepage() {
 	@layouts.BaseLayout() {
 		<main>
-			<header>
-				<h2>This should be homepage</h2>
-			</header>
+			@components.Hero()
+			@components.About()
+			@components.Services()
+			@components.Testimonials()
+			@components.CTA()
 		</main>
 	}
 }

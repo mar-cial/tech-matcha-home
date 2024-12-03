@@ -1,0 +1,37 @@
+package components
+
+css about() {
+	background-color: #ffffff;
+	padding: 40px 20px;
+	text-align: center;
+}
+
+css aboutDiv() {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+css aboutH2() {
+	font-size: 2rem;
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 20px;
+}
+
+css aboutP() {
+	font-size: 1.1rem;
+	color: #666;
+	line-height: 1.6;
+}
+
+templ About() {
+	<section id="about" class={ about() }>
+		<div class={ aboutDiv() }>
+			<h2 class={ aboutH2() }>About TechMatch</h2>
+			<p class={ aboutP() }>
+				TechMatch specializes in bridging the gap between highly skilled tech professionals and companies that
+				need their expertise...
+			</p>
+		</div>
+	</section>
+}
