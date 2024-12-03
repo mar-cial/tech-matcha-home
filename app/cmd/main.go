@@ -24,6 +24,7 @@ func main() {
 		Handler: mux,
 	}
 
+	log.Printf("Running on port %s\n", server.Addr)
 	if err := server.ListenAndServe(); err != nil {
 		log.Fatalln(err)
 	}

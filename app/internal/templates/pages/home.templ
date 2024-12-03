@@ -1,18 +1,100 @@
 package pages
 
 import (
-	"github.com/mar-cial/home-app/internal/templates/components"
+	"fmt"
 	"github.com/mar-cial/home-app/internal/templates/layouts"
 )
 
+css strongGreenBackgroundColor() {
+	background-color: #44624a;
+}
+
+css linksReset() {
+	text-decoration: none;
+}
+
+css resetList() {
+	list-style-type: none;
+}
+
+css main() {
+	box-sizing: border-box;
+	height: 100vh;
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+css navbar() {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+css loginBtn() {
+	background-color: #44624a;
+	text-decoration: none;
+	color: #f1ebe1;
+	padding: 3px 8px;
+	border-radius: 3px;
+}
+
+css logo() {
+	color: #44624a;
+	font-size: 1.5rem;
+	font-weight: 800;
+	text-decoration: none;
+}
+
+css hero() {
+}
+
+css buttonsContainer() {
+}
+
+css ctaButton(greenShade string) {
+	background-color: { fmt.Sprint(greenShade) };
+	text-decoration: none;
+	color: #f1ebe1;
+	padding: 8px 0px;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 templ Homepage() {
 	@layouts.BaseLayout() {
-		<main>
-			@components.Hero()
-			@components.About()
-			@components.Services()
-			@components.Testimonials()
-			@components.CTA()
+		<main class={ main() }>
+			<nav class={ navbar() }>
+				<div>
+					<a href="/" class={ logo() }>Tech <br/>Matcha</a>
+				</div>
+				<ul class={ resetList() }>
+					<li>
+						<a href="/login" class={ loginBtn() }>Login</a>
+					</li>
+				</ul>
+			</nav>
+			<section class={ hero() }>
+				<header>
+					<h2>Tech Matcha lets you connect with top talent faster than ever.</h2>
+				</header>
+				<section>
+					<header>
+						<h2>Land a job or find an employee in three easy steps:</h2>
+					</header>
+					<section>
+						<p>1. Create a profile as an employee/employer.</p>
+						<p>2. Fill in your skills or post a new job listing.</p>
+						<p>3. We use AI to offer you the best candidates for your interest.</p>
+					</section>
+				</section>
+			</section>
+			<section class={ buttonsContainer() }>
+				<a href="/" class={ ctaButton("#44624a") }>Create your profile!</a>
+			</section>
 		</main>
 	}
 }

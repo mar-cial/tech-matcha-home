@@ -1,9 +1,14 @@
 package layouts
 
-import "github.com/mar-cial/home-app/internal/templates/components"
+css beigeBackground() {
+	background: #f1ebe1;
+}
 
-css title() {
-	font-weight: 800;
+css mainFont() {
+	font-family: "DM Sans", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
 }
 
 templ BaseLayout() {
@@ -13,12 +18,15 @@ templ BaseLayout() {
 			<title>tech match</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 			<title>Tech Matcha - Tech Talent Aquisition</title>
-			<link rel="stylesheet" href="https://unpkg.com/tailwindcss@3.4.15/src/css/preflight.css"/>
+			<link rel="preconnect" href="https://fonts.googleapis.com"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+			<link
+				href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+				rel="stylesheet"
+			/>
 		</head>
-		<body>
-			@components.PageHeader()
+		<body class={ beigeBackground(), mainFont() }>
 			{ children... }
-			<footer></footer>
 		</body>
 	</html>
 }
