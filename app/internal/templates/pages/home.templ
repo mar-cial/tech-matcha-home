@@ -52,7 +52,10 @@ templ Homepage() {
 			</section>
 		</section>
 		<section class={ buttonsContainer() }>
-			<a href="" class={ ctaButton("#44624a") } hx-get="/register" hx-target="body">Register and create your profile!</a>
+			<a href="" class={ ctaButton("#44624a") } hx-get="/register" hx-push-url="true" hx-target="body">
+				Register and create
+				your profile!
+			</a>
 		</section>
 	}
 }
