@@ -5,25 +5,16 @@ css beigeBackground() {
 }
 
 css mainFont() {
-	font-family: "DM Sans", sans-serif;
-	font-optical-sizing: auto;
-	font-weight: 400;
-	font-style: normal;
+	font-family: sans-serif;
 }
 
 templ BaseLayout() {
 	<!DOCTYPE html>
 	<html>
 		<head>
-			<title>tech match</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 			<title>Tech Matcha - Tech Talent Aquisition</title>
-			<link rel="preconnect" href="https://fonts.googleapis.com"/>
-			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-			<link
-				href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-				rel="stylesheet"
-			/>
+			<script src="https://unpkg.com/htmx.org@2.0.3" integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq" crossorigin="anonymous"></script>
 		</head>
 		<body class={ beigeBackground(), mainFont() }>
 			{ children... }

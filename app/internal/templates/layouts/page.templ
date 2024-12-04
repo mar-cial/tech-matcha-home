@@ -1,0 +1,24 @@
+package layouts
+
+import "github.com/mar-cial/home-app/internal/templates/components"
+
+css main() {
+	box-sizing: border-box;
+	height: 100vh;
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+templ Page(title string) {
+	@BaseLayout() {
+		<main class={ main() }>
+			@components.Navbar()
+			<header>
+				<h1>{ title }</h1>
+			</header>
+			{ children... }
+		</main>
+	}
+}

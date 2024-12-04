@@ -1,0 +1,39 @@
+package components
+
+css resetList() {
+	list-style-type: none;
+}
+
+css navbar() {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+css loginBtn() {
+	background-color: #44624a;
+	text-decoration: none;
+	color: #f1ebe1;
+	padding: 3px 8px;
+	border-radius: 3px;
+}
+
+css logo() {
+	color: #44624a;
+	font-size: 2rem;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+templ Navbar() {
+	<nav class={ navbar() }>
+		<div>
+			<a href="/" class={ logo() }>Tech <br/>Matcha</a>
+		</div>
+		<ul class={ resetList() }>
+			<li>
+				<a href="" hx-target="body" hx-get="/register" class={ loginBtn() }>Login</a>
+			</li>
+		</ul>
+	</nav>
+}

@@ -13,33 +13,6 @@ css linksReset() {
 	text-decoration: none;
 }
 
-css resetList() {
-	list-style-type: none;
-}
-
-css main() {
-	box-sizing: border-box;
-	height: 100vh;
-	padding: 1.5rem;
-	display: flex;
-	flex-direction: column;
-	gap: 5px;
-}
-
-css navbar() {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-css loginBtn() {
-	background-color: #44624a;
-	text-decoration: none;
-	color: #f1ebe1;
-	padding: 3px 8px;
-	border-radius: 3px;
-}
-
 css logo() {
 	color: #44624a;
 	font-size: 1.5rem;
@@ -65,36 +38,21 @@ css ctaButton(greenShade string) {
 }
 
 templ Homepage() {
-	@layouts.BaseLayout() {
-		<main class={ main() }>
-			<nav class={ navbar() }>
-				<div>
-					<a href="/" class={ logo() }>Tech <br/>Matcha</a>
-				</div>
-				<ul class={ resetList() }>
-					<li>
-						<a href="/login" class={ loginBtn() }>Login</a>
-					</li>
-				</ul>
-			</nav>
-			<section class={ hero() }>
+	@layouts.Page("Tech Matcha lets you connect with top talent faster than ever.") {
+		<section class={ hero() }>
+			<section>
 				<header>
-					<h2>Tech Matcha lets you connect with top talent faster than ever.</h2>
+					<h2>Land a job or find an employee in three easy steps:</h2>
 				</header>
 				<section>
-					<header>
-						<h2>Land a job or find an employee in three easy steps:</h2>
-					</header>
-					<section>
-						<p>1. Create a profile as an employee/employer.</p>
-						<p>2. Fill in your skills or post a new job listing.</p>
-						<p>3. We use AI to offer you the best candidates for your interest.</p>
-					</section>
+					<p>1. Create a profile as an employee/employer.</p>
+					<p>2. Fill in your skills or post a new job listing.</p>
+					<p>3. We use AI to offer you the best candidates for your interest.</p>
 				</section>
 			</section>
-			<section class={ buttonsContainer() }>
-				<a href="/" class={ ctaButton("#44624a") }>Create your profile!</a>
-			</section>
-		</main>
+		</section>
+		<section class={ buttonsContainer() }>
+			<a href="" class={ ctaButton("#44624a") } hx-get="/register" hx-target="body">Register and create your profile!</a>
+		</section>
 	}
 }

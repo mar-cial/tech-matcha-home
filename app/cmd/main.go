@@ -14,10 +14,18 @@ func homepage(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func register(w http.ResponseWriter, r *http.Request) {
+	if err := pages.Register().Render(r.Context(), w); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+}
+
 func main() {
 	mux := http.DefaultServeMux
 
 	mux.HandleFunc("/", homepage)
+	mux.HandleFunc("/register", register)
 
 	server := &http.Server{
 		Addr:    ":8080",
