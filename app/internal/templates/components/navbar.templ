@@ -32,7 +32,7 @@ templ Navbar() {
 		</div>
 		<ul class={ resetList() }>
 			<li>
-				<a href="" hx-target="body" hx-get="/register" class={ loginBtn() }>Login</a>
+				<a href="" hx-push-url="true" hx-target="body" hx-get="/register" class={ loginBtn() }>Login</a>
 			</li>
 		</ul>
 	</nav>
